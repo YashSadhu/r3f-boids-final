@@ -231,6 +231,7 @@ export const Boids = ({ boundaries }) => {
       model={boid.model}
       scale={boid.scale}
       velocity={boid.velocity}
+      animation={"Fish_Armature|Swimming_Fast"}
       wanderCircle={WANDER_CIRCLE}
       wanderRadius={WANDER_RADIUS / boid.scale}
       alignCircle={ALIGN_CIRCLE}
@@ -247,6 +248,7 @@ const Boid = ({
   position,
   velocity,
   model,
+  animation,
   wanderCircle,
   wanderRadius,
   alignCircle,
@@ -260,6 +262,7 @@ const Boid = ({
   const { scene, animations } = useGLTF(`/models/${model}.glb`);
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const group = useRef();
+  const { actions } = useAnimations(animations, group);
   useEffect(() => {
     clone.traverse((child) => {
       if (child.isMesh) {
@@ -267,6 +270,13 @@ const Boid = ({
       }
     });
   }, []);
+
+  useEffect(() => {
+    actions[animation]?.play();
+    return () => {
+      actions[animation]?.stop();
+    };
+  }, [animation]);
 
   useFrame(() => {
     const target = group.current.clone(false);
@@ -278,7 +288,7 @@ const Boid = ({
 
   return (
     <group {...props} ref={group} position={position}>
-      <primitive object={clone} scale={0.1} rotation-y={Math.PI / 2} />
+      <primitive object={clone} rotation-y={Math.PI / 2} />
       <mesh visible={wanderCircle}>
         <sphereGeometry args={[wanderRadius, 32]} />
         <meshBasicMaterial color={"red"} wireframe />
