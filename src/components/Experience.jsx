@@ -113,15 +113,15 @@ export const Experience = () => {
       <mesh
         ref={(ref) => setSunRef(ref)}
         position-y={responsiveBoundaries.y / 4}
-        position-z={-10}
+        position-z={-50}
         rotation-x={degToRad(70)}
       >
-        <circleGeometry args={[12, 64]} />
+        <circleGeometry args={[3, 64]} />
         <meshBasicMaterial
           depthWrite={false}
           color={THEMES[theme].sunColor}
           transparent
-          opacity={1}
+          opacity={0.6}
         />
       </mesh>
 
