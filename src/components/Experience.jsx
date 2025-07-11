@@ -149,9 +149,11 @@ export const Experience = () => {
             >
               {THEMES[theme].title}
               <MeshTransmissionMaterial
+                color={THEMES[theme].titleColor}
                 clearcoat={1}
                 samples={3}
-                thickness={40}
+                thickness={10}
+                ior={1.5}
                 chromaticAberration={0.25}
                 anisotropy={0.4}
               />
@@ -176,9 +178,11 @@ export const Experience = () => {
             >
               {THEMES[theme].subtitle}
               <MeshTransmissionMaterial
+                color={THEMES[theme].titleColor}
                 clearcoat={1}
                 samples={3}
-                thickness={40}
+                thickness={10}
+                ior={1.5}
                 chromaticAberration={0.25}
                 anisotropy={0.4}
               />
@@ -199,7 +203,7 @@ export const Experience = () => {
           />
         )}
         {sunRef && <GodRays sun={sunRef} exposure={0.34} decay={0.89} blur />}
-        <Bloom luminanceThreshold={1.5} intensity={0.4} mipmapBlur />
+        <Bloom luminanceThreshold={1.5} intensity={0.6} mipmapBlur />
       </EffectComposer>
     </>
   );

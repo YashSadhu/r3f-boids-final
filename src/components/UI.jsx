@@ -9,6 +9,7 @@ export const THEMES = {
     skyColor: "#309BFF",
     sunColor: "#FE9E40",
     groundColor: "#DDD6F3",
+    titleColor: "#FFFFFF",
     title: "Yess",
     subtitle: "Mentors",
     models: [
@@ -27,6 +28,7 @@ export const THEMES = {
     skyColor: "#000000",
     sunColor: "#e1ae4e",
     groundColor: "#333333",
+    titleColor: "#ADD8E6",
     title: "Yess",
     subtitle: "Mentors",
     models: [`Koi_08`],
