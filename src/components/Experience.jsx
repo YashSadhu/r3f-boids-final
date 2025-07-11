@@ -15,26 +15,20 @@ import {
   GodRays,
 } from "@react-three/postprocessing";
 import { useAtom } from "jotai";
-import { useControls } from "leva";
 import { useEffect, useState } from "react";
 import { DoubleSide } from "three";
 import { degToRad } from "three/src/math/MathUtils.js";
-import { Boids } from "./Boids";
 import { themeAtom, THEMES } from "./UI";
 
 export const Experience = () => {
   const [theme] = useAtom(themeAtom);
 
-  const boundaries = useControls(
-    "Boundaries",
-    {
-      debug: false,
-      x: { value: 12, min: 0, max: 40 },
-      y: { value: 8, min: 0, max: 40 },
-      z: { value: 20, min: 0, max: 40 },
-    },
-    { collapsed: true }
-  );
+  const boundaries = {
+    debug: false,
+    x: 12,
+    y: 8,
+    z: 20,
+  };
 
   const [size, setSize] = useState([window.innerWidth, window.innerHeight]);
   const scaleX = Math.max(0.5, size[0] / 1920);
@@ -58,24 +52,15 @@ export const Experience = () => {
   }, []);
   const [sunRef, setSunRef] = useState();
 
-  const { focusRange, focusDistance, focalLength, bokehScale } = useControls(
-    "Depth of field",
-    {
-      focusRange: { value: 3.5, min: 0, max: 20, step: 0.01 },
-      focusDistance: { value: 0.25, min: 0, max: 1, step: 0.01 },
-      focalLength: { value: 0.22, min: 0, max: 1, step: 0.01 },
-      bokehScale: { value: 5.5, min: 0, max: 10, step: 0.1 },
-    },
-    {
-      collapsed: true,
-    }
-  );
+  const focusRange = 3.5;
+  const focusDistance = 0.25;
+  const focalLength = 0.22;
+  const bokehScale = 5.5;
 
   return (
     <>
       <OrbitControls />
 
-      <Boids boundaries={responsiveBoundaries} />
       <mesh visible={boundaries.debug}>
         <boxGeometry
           args={[
