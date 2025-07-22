@@ -91,10 +91,16 @@ export const UI = () => {
               Connect with AI personas of history's greatest minds and today's most successful leaders
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+              <button 
+                onClick={() => alert('Welcome to Yess Mentors! Choose your AI mentor to begin your learning journey.')}
+                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+              >
                 Start Learning
               </button>
-              <button className="border-2 border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-300">
+              <button 
+                onClick={() => alert('Explore our collection of AI mentors including historical figures and modern leaders.')}
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-300"
+              >
                 Explore Mentors
               </button>
             </div>
