@@ -92,7 +92,7 @@ export const UI = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
-                onClick={() => alert('Welcome to Yess Mentors! Choose your AI mentor to begin your learning journey.')}
+                onClick={() => window.open('https://www.needitbuildit.site', '_blank')}
                 className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
               >
                 Start Learning
